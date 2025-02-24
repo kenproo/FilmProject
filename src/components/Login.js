@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../styles/Login.scss";
 import { login } from "../api/Auth";
-import { Link } from "react-router-dom";
+import { Link , useNavigate} from "react-router-dom";
 import "boxicons";
 
 const Login = () => {
@@ -9,7 +9,7 @@ const Login = () => {
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isShowPassword, setIsShowPassword] = useState(false);
-
+  const navigate = useNavigate();
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
@@ -28,7 +28,7 @@ const Login = () => {
       if (response.result.token) {
         localStorage.setItem("token", response.result.token);
       }
-      alert("Đăng nhập thành công!");
+      navigate("/")
     } catch (err) {
       setError(err.response?.data?.message || "Đăng nhập thất bại");
     } finally {
@@ -81,8 +81,7 @@ const Login = () => {
             </button>
             <div className="logreg-link">
               <p>
-                Don't have an account?<a className="register-link">Sign up</a>
-              </p>
+                Don't have an account? <Link to="/signup">Sign Up</Link> </p>
             </div>
           </form>
         </div>

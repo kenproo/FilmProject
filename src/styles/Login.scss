@@ -49,11 +49,11 @@
             border: none;
             outline: none;
             border-bottom: 2px solid white;
-            color: white;
 
+            color:white;
             &:focus+label,
             &:valid+label {
-                top: -5px;
+                transform: translateY(-120%) scale(0.9); /* Đẩy lên mà không thay đổi top */
                 color: #0ef;
             }
 
@@ -65,9 +65,9 @@
             left: 0;
             transform: translateY(-50%);
             font-size: 16px;
-            color: white;
+            color:white;
             pointer-events: none;
-            transition: .5s;
+            transition: 0.5s;
         }
 
         i {

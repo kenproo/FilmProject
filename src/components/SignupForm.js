@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import "../styles/SignupForm.scss";
 function RegisterForm() {
   const [formData, setFormData] = useState({
     username: "",
@@ -51,103 +51,118 @@ function RegisterForm() {
   };
 
   return (
-    <div>
-      <h2>Register</h2>
-      <form onSubmit={handleSubmit}>
-        {/* Username */}
-        <div>
-          <label htmlFor="username">Username:</label>
-          <input
+    <div className="container">
+       <div className = "wrapper"> 
+      
+      <form onSubmit={handleSubmit} className="form-box-signup">
+      <h1>Register</h1>
+       
+        <div className = "input-box">
+      
+        <input
             type="text"
             id="username"
             name="username"
             value={formData.username}
             onChange={handleChange}
+            required
           />
-          {formErrors.username && (
-            <p className="error">{formErrors.username}</p>
-          )}
-        </div>
+            <label>Username</label>
+          
+          
+         </div>
+     
 
-        {/* Email */}
-        <div>
-          <label htmlFor="email">Email:</label>
+        <div className = "input-box">
+        
           <input
+            type="password"
+            id="password"
+            name="password"
+            required
+            value={formData.password}
+            onChange={handleChange}
+          />
+          <label >Password</label>
+         
+          {formErrors.password && (
+            <p className="error">{formErrors.password}</p>
+          )}
+
+
+        </div>
+       
+
+        <div className = "input-box">
+       
+          <input
+          required
             type="email"
             id="email"
             name="email"
             value={formData.email}
             onChange={handleChange}
           />
+           <label className="email">Email</label>
+            
           {formErrors.email && <p className="error">{formErrors.email}</p>}
         </div>
 
-        {/* Password */}
-        <div>
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-          />
-          {formErrors.password && (
-            <p className="error">{formErrors.password}</p>
-          )}
-        </div>
-
         {/* First Name */}
-        <div>
-          <label htmlFor="firstname">First Name:</label>
+        <div className = "input-box">
           <input
             type="text"
             id="firstname"
             name="firstname"
             value={formData.firstname}
+            required
             onChange={handleChange}
           />
+                 <label >First Name</label>
+
           {formErrors.firstname && (
             <p className="error">{formErrors.firstname}</p>
           )}
         </div>
 
         {/* Last Name */}
-        <div>
-          <label htmlFor="lastname">Last Name:</label>
-          <input
+        <div className = "input-box">
+       
+        <input
             type="text"
             id="lastname"
             name="lastname"
             value={formData.lastname}
             onChange={handleChange}
+            required
           />
+           <label className="lastname">Last Name</label>
           {formErrors.lastname && (
             <p className="error">{formErrors.lastname}</p>
           )}
-        </div>
-
-        <div>
-          <label htmlFor="dob">Date of Birth:</label>
-          <input
+      
+         
+          </div>
+        <div className = "input-box">
+        
+        <input
             type="date"
             id="dob"
-            name="dob"
+            className ="input-dob"
             value={formData.dob}
             onChange={handleChange}
+            required
           />
+          <label className="label-dob">Date of Birth</label>
           {formErrors.dob && <p className="error">{formErrors.dob}</p>}
+        
+         
         </div>
 
         {/* Submit Button */}
         <button type="submit">Register</button>
       </form>
-
-      <div className = "infor-text-login">
-<h2>Welcome my channel</h2>
-
-
-      </div>
+    </div>
     </div>
   );
 }

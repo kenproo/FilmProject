@@ -4,7 +4,7 @@ import "./styles/index.css";
 import App from "./components/App.js";
 import reportWebVitals from "./reportWebVitals";
 import Login from "./components/Login.js";
-import RegisterForm from "./components/RegisterForm.js";
+import SignupForm from "./components/SignupForm.js"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -13,7 +13,7 @@ root.render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/login" element={<Login />} />
-        <Route path = "/register" element = {<RegisterForm/>}/>
+        <Route path = "/signup" element = {<SignupForm/>}/>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
